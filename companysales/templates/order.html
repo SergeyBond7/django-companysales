@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-2">
+    <div class="row">
+        {% for order in order_list %}
+        <div class="col-md-6">
+            <div class="card mt-2">
+                <form action="{% url 'order' %}" method="post" class="mt-4"
+                      style="padding-left: 20px;">
+                    {% csrf_token %}
+                    <input type="hidden" name="id" value="{{ order.id }}">
+                    <button class="btn btn-danger">X</button>
+                </form>
+              <div class="card-body">
+                <h5 class="card-title">Покупатель: {{ order.customer }}</h5>
+                  <h5 class="card-title">Продавец: {{ order.seller }}</h5>
+                <p class="card-text">{{ order.product }}</p>
+                  <p class="card-text">Дата: {{ order.date }}</p>
+                  <p class="card-text">Цена: {{ order.total }}</p>
+                <form action="{% url 'edit_order' order.id %}" method="get" class="mt-4"
+                      style="padding-right: 20px;">
+                    {% csrf_token %}
+                    <input type="hidden" name="id" value="{{ order.id }}">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-edit">Edit</i>
+                    </button>
+                </form>
+              </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

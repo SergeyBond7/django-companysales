@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-info text-light">Find</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div align="center" class="container">
+    <div class="row mx-auto">
+            <div class="col-md-5 mt-4 mx-auto">
+                    <div class="card-body">
+                        {% if total %}
+                            <span style="background-color:blue;
+                                        color: white; font-size:250%;
+                                        font-family: courier;">
+                                        Totally: {{ total }} </span>
+                        {% else %}
+                            <div align="center" class="mt-4">
+                                <span style="background-color:red;
+                                            color: white;font-size:250%;
+                                            font-family:courier;">
+                                            Not found
+                                </span>
+                                </div>
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

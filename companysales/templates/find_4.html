@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-info text-light">Find</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div align="center" class="container">
+    <div class="row mx-auto">
+        {% for c in customer_list %}
+            <div class="col-md-5 mt-4 mx-auto">
+                <div class="card border-primary mb-3">
+                    <div class="card-body">
+                        <div align="center" class="card">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">{{ c.last_name }} {{ c.first_name }}</li>
+                                <li class="list-group-item">Номер телефона: {{ c.phone }}</li>
+                                <li class="list-group-item">Email: {{ c.email }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div align="center" class="mt-4">
+                <span style="background-color:red;
+                        color: white;font-size:250%;
+                        font-family:courier;">
+                        Not found
+            </span>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

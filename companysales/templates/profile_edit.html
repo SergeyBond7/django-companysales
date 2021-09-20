@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+
+        <div class="alert alert-success" role="alert">
+              <h4 class="alert-heading">Well done!</h4>
+              <p>{{ message }}</p>
+        </div>
+
+    {% endfor %}
+    </ul>
+{% endif %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form method="post" class="mt-4" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                {% if form.instance.avatar %}
+                    <img class="rounded mx-auto d-block"
+                         src="{{ form.instance.avatar.url }}"
+                         style="margin-bottom: 20px;">
+                {% endif %}
+                <div>
+                    <button
+                        class="btn btn-success"
+                        style="margin: auto;
+                        display: block">Edit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
