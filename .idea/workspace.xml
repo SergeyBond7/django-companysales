@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82fa2a93-9cf8-457a-abaa-6ef3ce864318" name="Default Changelist" comment="added">
-      <change afterPath="$PROJECT_DIR$/companysales/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/companysales/Procfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/companysales/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/companysales/runtime.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/companysales/companysales/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/companysales/companysales/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-companysales" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +29,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ChangesTree.GroupingKeys" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -163,16 +159,5 @@
     <MESSAGE value="+" />
     <MESSAGE value="added" />
     <option name="LAST_COMMIT_MESSAGE" value="added" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

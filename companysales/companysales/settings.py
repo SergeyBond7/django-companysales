@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-k$qr3zwe9hs!r1#&m97(t!!^q#e1)7s-p**3y=1dlgx#iq=t@o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', 'django-companysales-2021.herokuapp.com']
 
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
@@ -38,14 +38,14 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'config.apps.ConfigConfig'
+    'config.apps.ConfigConfig',
+    'whitenoise.runserver_nostatic'
 ]
 
 MIDDLEWARE = [
@@ -56,10 +56,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleWare'
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'companysales.urls'
 
@@ -94,7 +94,6 @@ DATABASES = {
     }
 }
 
-DATABASES['default'].update()
 
 
 # Password validation
@@ -134,10 +133,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / 'staticfiles',
 ]
 
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -147,3 +146,10 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+import dj_database_url
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+
+DATABASES['default'].update()
